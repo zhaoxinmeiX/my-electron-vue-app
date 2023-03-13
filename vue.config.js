@@ -100,7 +100,7 @@ module.exports = {
           // 这个配置会生成latest.yml文件，用于自动更新的配置信息；
           {
             provider: "generic",
-            url: "http://appupdate.xxx.xxx.cn/", // 更新地址 这个很重要
+            url: "https://github.com/zhaoxinmeiX/my-electron-vue-app",
           },
         ],
       },
