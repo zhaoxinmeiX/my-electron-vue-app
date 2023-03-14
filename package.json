@@ -1,6 +1,6 @@
 {
   "name": "my-electron-vue-app",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "author": {
     "email": "541902876@qq.com",
@@ -11,8 +11,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "electron:serve": "vue-cli-service electron:serve",
-    "electron:build": "vue-cli-service electron:build",
-    "cross-package-win": "vue-cli-service electron:build --win --x64 -p never",
+    "electron:build": "vue-cli-service electron:build -p never",
+    "cross-package-win": "vue-cli-service electron:build --win --x64 -p always",
     "cross-package-win32": "vue-cli-service electron:build --win --ia32 -p never",
     "cross-package-linux": "vue-cli-service electron:build --linux --x64 -p never",
     "cross-package-linux-arm64": "vue-cli-service electron:build --linux --arm64 -p never",
@@ -41,6 +41,7 @@
     "@vue/cli-service": "~5.0.0",
     "electron": "^13.0.0",
     "electron-devtools-installer": "^3.1.0",
+    "electron-updater": "^5.3.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

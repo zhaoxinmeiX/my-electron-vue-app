@@ -1,16 +1,16 @@
 import { autoUpdater } from "electron-updater";
+
 const { dialog, BrowserWindow } = require("electron");
 const path = require("path");
+const pkg = require("../../../package.json");
 
 const isDevelopment = process.env.NODE_ENV === "development";
-
-// 防止报错no such file or directory dev-app-update.yml
 if (isDevelopment) {
+  // 设置当前版本
+  autoUpdater.currentVersion = pkg.version;
   autoUpdater.updateConfigPath = path.join(__dirname, "dev-app-update.yml");
 }
-/**
- * -1 检查更新失败 0 正在检查更新 1 检测到新版本，准备下载 2 未检测到新版本 3 下载中 4 下载完成
- **/
+
 export default class Update {
   constructor() {
     let win = null;
@@ -53,6 +53,7 @@ export default class Update {
         frame: false,
         transparent: true,
         maximizable: false,
+        backgroundColor: "#dddddd",
         webPreferences: {
           nodeIntegration: true,
           contextIsolation: false,
@@ -82,16 +83,15 @@ export default class Update {
         });
     });
   }
+
   // 执行自动更新检查
   checkUpdate() {
     // 检测是否有新版本
-    autoUpdater
-      .checkForUpdates()
-      .then((res) => {
+    autoUpdater.checkForUpdates().then((res) => {
         console.log("checkForUpdates", res);
       })
       .catch((err) => {
         console.log("网络连接问题", err);
-      });
+    });
   }
 }

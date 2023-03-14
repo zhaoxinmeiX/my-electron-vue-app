@@ -102,6 +102,7 @@ module.exports = {
             provider: "github",
             owner: "zhaoxinmeiX",
             repo: "my-electron-vue-app",
+            token: "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",
           },
         ],
       },
