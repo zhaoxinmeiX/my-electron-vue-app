@@ -99,8 +99,9 @@ module.exports = {
         publish: [
           // 这个配置会生成latest.yml文件，用于自动更新的配置信息；
           {
-            provider: "generic",
-            url: "api.github.com/repos/zhaoxinmeiX/my-electron-vue-app/releases",
+            provider: "github",
+            owner: "zhaoxinmeiX",
+            repo: "my-electron-vue-app",
           },
         ],
       },

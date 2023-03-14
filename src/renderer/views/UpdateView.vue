@@ -1,5 +1,6 @@
 <template>
   <div>
+    <el-button type="primary" round @click="toHomePage">首页</el-button>
     <el-button type="primary" round @click="checkUpdate">检查更新</el-button>
     <el-dialog
       title="进度"
@@ -46,6 +47,9 @@ export default {
     });
   },
   methods: {
+    toHomePage() {
+      this.$router.push("/");
+    },
     checkUpdate() {
       ipcRenderer.invoke("check-update").then((res) => {
         console.log("启动检查", res);
